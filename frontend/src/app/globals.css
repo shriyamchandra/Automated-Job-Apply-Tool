@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #0a0a0b;
+  --foreground: #ffffff;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1a1a1b;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #2a2a2b;
+}
+
+/* Typography styles for markdown reports */
+.prose {
+  color: #a1a1aa;
+  max-width: none;
+}
+.prose h1, .prose h2, .prose h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.prose strong {
+  color: #ffffff;
+}
+.prose a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+.prose code {
+  color: #e879f9;
+  background: rgba(232, 121, 249, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+}

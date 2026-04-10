@@ -69,6 +69,8 @@ Then paste a job offer URL or description. Career-ops will automatically evaluat
 ```bash
 node cv-sync-check.mjs      # Check configuration
 node verify-pipeline.mjs     # Check pipeline integrity
+node active-gate.mjs --dry-run  # Preview expired/active link status (no changes)
+node active-gate.mjs            # Remove expired links from pipeline
 ```
 
 ## Build Dashboard (Optional)

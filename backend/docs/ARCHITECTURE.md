@@ -98,6 +98,7 @@ Scripts maintain data consistency:
 | `dedup-tracker.mjs` | Removes duplicate entries by company+role |
 | `normalize-statuses.mjs` | Maps status aliases to canonical values |
 | `cv-sync-check.mjs` | Validates setup consistency |
+| `active-gate.mjs` | HTTP-only liveness gate — removes expired/unconfirmed URLs from pipeline before evaluation |
 
 ## Dashboard TUI
 

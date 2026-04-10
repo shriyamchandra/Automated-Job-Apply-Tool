@@ -7,6 +7,8 @@ import {
   Briefcase, 
   GitBranch, 
   Clock, 
+  MessageSquare,
+  Terminal,
   ChevronRight 
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -16,6 +18,8 @@ const navItems = [
   { label: 'Applications', href: '/applications', icon: Briefcase },
   { label: 'Pipeline', href: '/pipeline', icon: GitBranch },
   { label: 'Scan History', href: '/scan-history', icon: Clock },
+  { label: 'Operations', href: '/operations', icon: Terminal },
+  { label: 'Chat', href: '/chat', icon: MessageSquare },
 ];
 
 export function Sidebar({ className }: { className?: string }) {

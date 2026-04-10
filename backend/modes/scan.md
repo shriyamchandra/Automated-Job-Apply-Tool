@@ -107,6 +107,21 @@ Los niveles son aditivos — se ejecutan todos, los resultados se mezclan y dedu
 
    **No interrumpir el scan entero si una URL falla.** Si `browser_navigate` da error (timeout, 403, etc.), marcar como `skipped_expired` y continuar con la siguiente.
 
+7.6. **Active-Gate (batch liveness via HTTP)** — AFTER adding URLs to pipeline.md:
+
+   For a faster, token-free pre-filter, run the active-gate script which checks all pending URLs via HTTP fetch (no Playwright, no LLM):
+
+   ```bash
+   node active-gate.mjs           # apply: removes expired from pipeline, logs to scan-history
+   node active-gate.mjs --dry-run # preview: report only, no file changes
+   ```
+
+   This supplements the Playwright verification in step 7.5 with a lightweight HTTP-only check.
+   URLs that return 404/410 or contain expired phrases are removed from pipeline.md.
+   URLs that are blocked (403) or ambiguous are marked `skipped_unconfirmed` and also removed.
+   Only confirmed-active URLs remain for Claude evaluation.
+
+
 8. **Para cada oferta nueva verificada que pase filtros**:
    a. Añadir a `pipeline.md` sección "Pendientes": `- [ ] {url} | {company} | {title}`
    b. Registrar en `scan-history.tsv`: `{url}\t{date}\t{query_name}\t{title}\t{company}\tadded`

@@ -14,5 +14,22 @@ frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/pnpm-debug.log*
 
+# Backend dependencies
+backend/node_modules/
+
+# Personal data (NEVER push)
+backend/cv.md
+backend/config/profile.yml
+backend/config/profile.yaml
+backend/data/
+backend/reports/
+backend/output/
+backend/batch/
+backend/interview-prep/
+backend/jds/
+backend/portals.yml
+
 # OS
 .DS_Store
+*.swp
+*~

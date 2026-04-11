@@ -75,7 +75,9 @@ career-ops/
 ├── .gitignore                  # Unified ignore rules for both sides
 │
 ├── frontend/                   # 🖥️  Web Dashboard (Next.js)
-│   ├── src/app/                #     Pages + API routes
+│   ├── src/app/                #     App Router pages + API routes
+│   ├── src/app/api/chat/       #     Chat endpoints (/api/chat, /api/chat/stop)
+│   ├── src/app/api/ops/        #     Operations endpoints (/api/ops/*)
 │   ├── src/components/         #     Reusable UI components
 │   ├── src/lib/                #     Parsers, writers, utilities
 │   ├── __tests__/              #     Vitest unit tests
@@ -125,8 +127,11 @@ Browser  ──►  Next.js API Route  ──►  backend/data/*.md, backend/rep
 | `/api/pipeline` | GET | Pending + processed items from pipeline.md |
 | `/api/scan-history` | GET | Parsed TSV entries with optional status filter |
 | `/api/reports/[slug]` | GET | Markdown content of a single report |
-| `/api/claude/chat` | POST | Spawn `claude -p` as child process, stream output via SSE |
-| `/api/claude/stop` | POST | Kill a running Claude process by session ID |
+| `/api/chat` | POST | Spawn `claude -p` as child process, stream output via SSE |
+| `/api/chat/stop` | POST | Kill a running chat/ops process by session ID |
+| `/api/ops/scan` | POST | Run portal scan and stream operation logs via SSE |
+| `/api/ops/active-gate` | POST | Run active-gate liveness filter and stream logs via SSE |
+| `/api/ops/pipeline` | POST | Process pending pipeline items and stream logs via SSE |
 
 ### Data Flow
 
@@ -161,7 +166,7 @@ The chat page provides a browser-based interface to the locally installed Claude
 ```
 Browser (React)                      Next.js Server Route                Claude CLI
      │                                      │                              │
-     ├── POST /api/claude/chat ────────────►│                              │
+  ├── POST /api/chat ───────────────────►│                              │
      │   { message: "scan" }                │                              │
      │                                      ├── spawn("claude", ["-p"]) ──►│
      │                                      │     cwd: backend/            │
@@ -170,7 +175,7 @@ Browser (React)                      Next.js Server Route                Claude 
      │   ◄── SSE: event:delta  ◄────────────┤◄── stdout ───────────────────┤
      │   ◄── SSE: event:done   ◄────────────┤◄── exit 0 ──────────────────│
      │                                      │                              │
-     ├── POST /api/claude/stop ────────────►│── SIGTERM ──────────────────►│
+  ├── POST /api/chat/stop ──────────────►│── SIGTERM ──────────────────►│
 ```
 
 Key constraints:

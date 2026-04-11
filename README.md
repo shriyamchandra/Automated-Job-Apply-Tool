@@ -2,14 +2,16 @@
 
 [English](README.md) | [Español](backend/README.es.md)
 
+> This repository is a derivative of the original Career-Ops project and is actively extended as a fork.
+> Original creator: [Santiago (santifer)](https://github.com/santifer) · Fork maintainer: [Shriyam Chandra](https://github.com/shriyamchandra)
+
 <p align="center">
   <a href="https://x.com/santifer"><img src="backend/docs/hero-banner.jpg" alt="Career-Ops — Multi-Agent Job Search System" width="800"></a>
 </p>
 
 <p align="center">
-  <em>I spent months applying to jobs the hard way. So I engineered the system I wish I had.</em><br>
-  Companies use AI to filter candidates. <strong>I gave candidates AI to <em>choose</em> companies.</strong><br>
-  <em>Now it's open source.</em>
+  <em>An open-source job search operations system for evaluating roles, tracking applications, and running AI-assisted workflows.</em><br>
+  <strong>Built on the original Career-Ops foundation and extended in this fork with frontend and workflow improvements.</strong>
 </p>
 
 <p align="center">
@@ -45,13 +47,35 @@ Career-Ops turns any AI coding CLI into a full job search command center. Instea
 
 > **Important: This is NOT a spray-and-pray tool.** Career-ops is a filter — it helps you find the few offers worth your time out of hundreds.
 
+## Project Lineage and Credits
+
+This project builds on the original Career-Ops work and extends it in this fork.
+
+### Original Project Credit
+
+- Original repository: [santifer/career-ops](https://github.com/santifer/career-ops)
+- Original creator: [Santiago (santifer)](https://github.com/santifer)
+- Core foundation credited to original project: mode-driven backend workflows, tracker/pipeline model, and evaluation/scanning architecture.
+
+### Fork and Ongoing Contributions
+
+- Fork repository: [shriyamchandra/Automated-Job-Apply-Tool](https://github.com/shriyamchandra/Automated-Job-Apply-Tool)
+- Fork maintainer: [Shriyam Chandra](https://github.com/shriyamchandra)
+- Major additions in this fork include:
+  - Next.js frontend dashboard for applications, pipeline, scan history, and operations views.
+  - Browser chat and operations integration for local CLI workflows.
+  - Repository structure split and cleanup into top-level backend and frontend folders.
+  - Reliability and testing hardening tracked in [improvements.md](improvements.md).
+
+If you reference or reuse this repo, please credit both the original project and the fork contributions.
+
 ---
 
 ## Quick Start
 
 ```bash
 # 1. Clone
-git clone https://github.com/santifer/career-ops.git
+git clone https://github.com/shriyamchandra/Automated-Job-Apply-Tool.git career-ops
 cd career-ops
 
 # 2. Install everything & launch
@@ -423,10 +447,7 @@ See [LEGAL_DISCLAIMER.md](backend/LEGAL_DISCLAIMER.md) for full details.
 
 MIT
 
-## Let's Connect
+## Maintainers
 
-[![Website](https://img.shields.io/badge/santifer.io-000?style=for-the-badge&logo=safari&logoColor=white)](https://santifer.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/santifer)
-[![X](https://img.shields.io/badge/X-000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/santifer)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8pRpHETxa4)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy_Me_a_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/santifer)
+- Original creator: [Santiago (santifer)](https://github.com/santifer)
+- Fork maintainer: [Shriyam Chandra](https://github.com/shriyamchandra)
